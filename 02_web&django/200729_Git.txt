@@ -1,0 +1,47 @@
+Git은 Version Control System 자체고
+GitHub는 Remote Repository에 저장하기 위한
+
+# Git, GitHub 기본 사용법
+ - 여러 사람이 공유데이터 (파일)을 동시에 사용할 때 동시성에 문제가 발생
+ - 데이터 유실 문제가 발생할 수 있다.
+ => VCS (Version Control System) 프로그램이 많이 사용되었다.
+    - CVSC (Centeralized Version Control System) : subversion
+	- DVCS (Distributed Version Control System) : Git (무료)
+	
+	Git => 저장소엔 두가지 종류가 있다.	
+		1) Local Repository - 내 컴퓨터 내 저장소가 위치
+		2) Remote Repository - 다른 컴퓨터 내에 저장소가 위치 => GitHub 프로그램 이용
+
+1. Git 설치
+ - Notepad ++ 64bit 먼저 설치	
+ - Git 프로그램 다운로드 후 기본설정으로 설치
+
+2. 환경설정
+	Git Bash 커맨드 창
+	사용자 user.name, user.email 환경변수 설정
+		$ git config --global user.name "JuHyun Kim"
+		$ git config --global user.email "j828hh@gmail.com"
+	확인
+		$ git config --list
+
+
+3. Local Repository 부터 생성
+	지금 현재 사용하고 있는 HTML_Basic이라는 프로젝트 (폴더)에 대한 Local Repository를 생성
+	=> WebStorm의 VCS 메뉴로 Local Repository 생성, .git 폴더가 생성됨
+	=> commit 과정을 거쳐 우리가 사용하는 모든 파일 (환경설정파일 포함)을 Local Repository에 저장했다.
+		- 그러나, 모든 파일 (ex. 환경설정파일)을 저장할 필요는 없다.
+	=> 불필요한 파일을 commit하지 않기 위해 특정한 파일 하나를 이용
+		- .gitignore 
+	=> 이 파일을 하나 만들어 보자. (얘를 자동으로 만들어주는 웹 사이트 -
+	https://www.toptal.com/developers/gitignore
+	python, webstorm 키워드를 입력한 후 생성을 누르면 파일 내용이 출력된다.
+	.gitignore 파일을 하나 만들어서 해당 내용으로 저장 -> commit해서 Local Repository에 저장
+		
+====================================================================
+
+이제 내 프로젝트를 Remote Repository에 저장한다.
+
+Remote Repository를 만들기 위해 GitHub를 이용한다.
+
+
+WebStorm close project -> Get From Version Control -> 로그인 -> Repository 선택

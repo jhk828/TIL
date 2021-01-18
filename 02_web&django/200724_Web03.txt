@@ -1,0 +1,79 @@
+- jQuery 내용 정리 : selector + method
+
+	=> selector에 대해서 알아보아요.
+	- selector + method	  $("#haha").css()
+	  $("#haha").remove()
+	  
+	  06_jQuery_exec.html
+	  
+  	=> method에 대해서 알아보아요.
+	  07_jQuery_method
+	  
+	=> AJAX에 대해서 알아보아요.
+	- 서버가 제공하는 데이터를 받아서 그 데이터를 이용해서 화면을 제어해야 한다.
+	- 서버로부터 데이터를 받아오는 방법 => AJAX 처리
+	- AJAX는 JavaScript가 가지고 있는 서버와의 비동기 통신 방법
+	1) 동기방식 : 프로그램 처리가 쉽다
+				  비효율적
+	2) 비동기방식 : 프로그램적 처리가 어렵다
+					이벤트 처리 방식 => 효율적
+					
+==================================================================================
+	
+	
+AJAX로 서버와 통신해서 서버가 보내준 데이터를 받아서 화면처리를 진행하자.
+	
+	
+그러면 서버는 어떤 형식에 데이터를 보내주는가?
+1. CSV (Comma Separted Value)
+	예) 홍길동,20,서울,김길동,30,인천,최길동,50,부산...
+	- 장점 : 많은 양의 데이터를 처리하기에 적합
+			 부가적인 데이터가 ',' 뿐이라 상대적으로 적은 편이다.
+	- 단점 : 데이터구조를 표현하기가 쉽지 않다.
+			 결국 데이터가 변경되면 데이터를 사용하는 프로그램을 같이 변경해야 함
+			 -> 유지보수에 문제가 발생
+
+2. XML(Extended Markup Language)
+	예) <name>홍길동</name><age>20</age><address>서울</address>...
+	- 장점 : 데이터구조를 표현하기 좋다
+			 사용하기 좋다.
+	- 단점 : 부가적인 데이터가 너무 많다.
+			 데이터가 커지면 네트워크를 이용해서 전공하기 힘들어진다.	
+	=> 90년대, 00년 초반에 많이 사용했다.
+
+3. JSON (JavaScript Object Notation)
+	예) { name : "홍길동", age : 20, address : "서울", ... }
+	=> JSON은 데이터를 표현하는 표현법.
+	   문자열이다. (프로그램 객체x 생긴것만 자바스크립트 객체)
+   
+
+==================================================================================
+
+1. 서버쪽 프로그램이 필요
+	- 클라이언트에게 HTML, CSS, JavaScript로 되어있는 page가 전송
+
+	클라이언트는 이 page에 있는 버튼을 클릭해서 특정 서버 프로그램을 호출
+
+	특정 서버 프로그램은 데이터를 JSON 형식으로 클라이언트에게 전송한다.
+
+	받은 JSON을 적절하게 처리해서 (jQuery) 화면을 구성
+
+	특정 서버프로그램 : 제공된 프로그램을 이용
+	=> 한빛 미디어에서 출판된 IT 도서 데이터.
+
+	http://ip주소:포트번호/bookSearch/search?keyword=python
+
+
+	- JSON Formatter
+	https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=ko
+	추가
+
+2. 제공받은 데이터를 이용해서 화면을 만들어야 한다.
+	- 개발자들이 쉽게 화면을 디자인하기 위해 사용하는 framework 
+	=> Bootstrap을 이용해서 화면 만들어 사용
+	-> example -> dashboard.html이랑 css 파일 긁어와서 사용
+	
+	08_bookSearch.html
+  
+	  
+- Open API 호출 후 Page 동적 생성 실습

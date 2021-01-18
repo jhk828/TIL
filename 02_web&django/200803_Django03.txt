@@ -1,0 +1,126 @@
+polls web program 완성
+
+1. Python을 이용해서 Web Application을 만들려고 한다.
+	- Django, Flask
+	- pip install Django
+	
+2. Django는 Framework이고, Django 기능을 이용해서 우리가 만들려는 프로젝트의 뼈대를 만들 수 있다.
+	- C:\python-Django 폴더 생성
+		여러개의 Django project를 모아놓은 폴더다.
+    - C:\python-Django>
+		해당 폴더로 이동한 후 새로운 project 하나 생성
+		django-admin 명령어로 프로젝트 scaffolding
+	  C:\python-Django>django-admin startproject my_polls
+	- C:\python-Django\my_polls
+	- C:\python-Django\my_polls라는 폴더명을 MyPollSystem으로 변경
+		여기에 새로운 application을 추가한다.
+		-> python manage.py startapp polls (어플리케이션 이름이 polls)
+		
+3. 프로젝트 설정부터 해야 한다. 
+
+ 1) ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ 
+ 2) INSTALLED_APPS = [
+    'polls.apps.PollsConfig',	# 추가
+	]
+	- app 이름은 polls\PollsConfig
+	
+ 3) ROOT_URLCONF = 'my_polls.urls' 
+	(변경x)
+	
+ 4) TEMPLATES
+	template 찾기 -> 
+	1) 앱 안에 templates 폴더 안을 먼저 찾고 2) 없으면 settings.py 안의 TEMPLATES에서 찾는다.
+	
+ 5) DATABASES
+	- default는 sqlite3
+	- db.sqlite3라는 이름의 db를 쓴다고 명시함
+
+ 6) TIME_ZONE = 'Asia/Seoul'
+ 
+ 7) STATIC_URL = '/static/'
+	=> CSS나 JavaScript 사용할 때 파일 경로 명시, 게시판 작업 때 사용
+
+4. 필수적으로 필요한 데이터베이스부터 생성해야 한다.	=> db.sqlite3 파일 생성하기
+
+ 1) C:\python-Django\MyPollSystem>python manage.py migrate	
+  (Django는 이미 db 명세 설정이 만들어져있기 때문에)
+	=> C:\python-Django\MyPollSystem\db.sqlite3 파일이 현재 비어있는 상태로 만들어진다.
+ 관리자 페이지를 이용하려면 당연히 관리자 계정이 있어야 한다.
+ 
+ 2) C:\python-Django\MyPollSystem>python manage.py 
+	jhk
+ 
+ 
+5. 프로젝트가 web에 delpoy 될 수 있는지를 확인하고 관리자 페이지가 정상적으로 동작하는지를 
+	확인하기 위해 서버를 기동한다.
+	C:\python-Django\MyPollSystem>python manage.py runserver
+
+6. 기본적인 프로젝트 세팅이 완려되었으니 세부적인 기능 구현을 한다.
+	(application 구현) - Django에서는 하나의 기능 = 하나의 어플리케이션
+
+=======================================================================
+
+polls application을 구현해보자.
+
+1. Model 작업 부터
+ - 어떤 데이터베이스를 어떻게 사용할지
+ - application에서 사용할 데이터베이스 구조를 생각해야 한다.
+ 
+ - Django에서는 DB에 ORM을 이용한다.
+	: 특정 파일에 class를 작성해서 Table을 표현해야 하고, 이를 Model 작업이라 한다.
+	
+	
+	1) 
+	- models.py에 모든 Model들을 정의해야 한다.
+	- models.py 안의 class의 이름은, 결국 table의 이름과 mapping이 된다.
+	- class variable => field명
+	- 데이터베이스는 대소문자를 구분하지 않는다.
+	- id 필드는 Django에서 자동으로 만들어준다.
+		: 자동으로 생성되는 id는 PK, 1씩 자동증가 (auto increment)
+	
+	1-1) C:\python-Django\MyPollSystem\models.py 
+		Class 작성
+	 class Question(models.Model):
+	 class Choice(models.Model):
+	 
+	2) class 작성 후에는 admin page에서 사용할 수 있도록 등록을 해 줘야 한다.
+	=> admin.py 파일에 등록한다.
+	
+	3) 
+	
+	여기까지 작업했다고 실제 데이터베이스 테이블이 생성되는 것은 아니다.
+	데이터베이스에 테이블을 만들려면, 실제로는 SQL 구문이 필요하다.
+	
+	3-1) class와 매핑되는 테이블을 만들기 위해 필요한 SQL 구문을 생성한 후 
+		python manage.py makemigrations
+	
+	3-2) 그 구문을 실행해서 실제 테이블을 생성해야 한다.
+		python manage.py migrate
+ 
+
+2. URL 작업
+ http://localhost:8000/polls
+ 
+ urls는 계층 구조로 만드는게 관리하기 편하다.
+ 
+ 1) C:\python-Django\MyPollSystem\my_polls\urls.py
+
+ 2) C:\python-Django\MyPollSystem\polls\urls.py
+ 
+ 3) C:\python-Django\MyPollSystem\polls\views.py
+ 
+ 4) C:\python-Django\MyPollSystem\polls\index.html
+ 
+ 5) 접속해서 확인
+	http://ip주소:8000/polls/
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+	
+	

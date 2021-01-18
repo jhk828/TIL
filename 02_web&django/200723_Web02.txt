@@ -1,0 +1,98 @@
+- Internet : Network of Network => 전세계적으로 연결되어 있는 물리적인 네트워크 망.
+
+- Internet을 이용하기 위해서는 여러가지 Service(프로그램들)가 필요.
+	=> 그 중 Web Service (World Wide Web Service)
+	
+- Web Service는 CS 구조로 동작해요.
+	1) Web Server : 데이터를 제공하는 역할을 하는 process (프로그램)
+		=> Apache web server
+	2) Web Client : 서버에 의해서 제공된 데이터를 가져다 사용하는 process (프로그램)
+		=> Web browser (Chrome, IE, ..)
+		
+- Web Server에 의해서 제공되는 데이터는
+	1) Web Page 형태로 제공되는 데이터.
+	2) Web Application 형태로 제공되는 데이터.
+		
+	=> HTML, CSS, JavaScript 언어로 이 데이터를 만들어서 제공
+	
+- Web Serice의 종류는 크게 2가지가 있다.
+	1) static web service : 정적 웹 서비스 
+		- 클라이언트가 특정 HTML 파일을 요청한다.
+		- HTML, CSS, JavaScript로 처리 가능
+	2) dynamic web service : 동적 웹 서비스 
+		- 클라이언트가 특정 프로그램을 실행해서 그 결과를요청한다.
+		- HTML, CSS, JavaScript + Python (,,)
+		
+- 개발환경을 설정 => WebStorm을 이용해서 개발을 진행.
+
+- 웹 서버가 웹 클라이언트에게 데이터를 전달하는 전체적인 과정
+	1. 웹 서버가 일단 존재해야 한다.
+	2. 웹 서버가 내가 작성한 프로젝트를 인식해야 해요! => Configure
+	3. 웹 서버 프로그램을 기동/실행하면, 
+		자신이 인식하고 있는 프로젝트를 웹에서 사용할 수 있도록 deploy (전개)한다.
+		- 클라이언트가 접속할 서버 컴퓨터의 IP와 포트 번호를 정하게 된다!!
+	4. 웹 클라이언트를 실행해야 한다. 
+		- 크롬을 실행한다.
+	5. 크롬을 이용해서 웹 서버에 접속해서 우리가 작성한 HTML 파일을 받아온다.
+	6. 크롬 브라우져가 받은 HTML을 해석해서 화면을 그린다. -> rendering
+
+- HTML5 (지금 우리가 사용하고 있는 HTML 버전)
+  HTML5 = HTML + CSS + JavaScript 
+		  HTML 표준안 + CSS 표준안 + JavaScript의 API
+		  (JavaScript 표준은 따로 있고 함수가 들어가있다고 이해)
+		  
+
+================================================================================
+
+- HTML, CSS, JavaScript (언어스펙)
+
+	HTML 부터 알아보아요
+		- 주요 tag부터 알아보아요
+		- 아주아주 간단한 CSS 구문
+
+02_html_element.html
+
+- Web 개발 환경의 변화
+	- static/ dynamic request/response 과정 (200723_pic01)
+	- Round Trip   =>   SPA (Single Page Application)으로 변화하고 있다!
+		=> Front-end Web Application을 작성해야 한다.
+			- AJAX (서버와의 통신을 통해 data만! 받아온다 => 비동기 방식)
+				- 프론트 화면의 틀이 되는 HTML 코드는 초반에 한번만 서버에서 받아온 후 data만 갈아끼운다.
+
+- HTML, CSS는 기본이에요.
+- 중요한건, JavaScript을 잘 해야 해요.
+	- Python처럼 무지막지하게 이야기하지는 않아요
+	
+- JavaScript => jQuery => AJAX
+ -> 순수 JavaScript는 프로그래밍하기가 너무 힘들고 복잡해요!
+	대신 JavaScript library인 jQuery를 이용해서 이 프로그래밍 처리를 수행한다.
+	jQuery는 사용하기 아주 편하게 만들어놓은 JavaScript library
+	
+
+03_javascript.html
+04_javascript_clock.html
+04_javascript_clock.js
+
+
+-> 결론적으로 HTML, CSS, JavaScript (jQuery)를 이용해서 웹 브라우져 화면을 제어!
+
+
+jQuery
+ 1) JavaScript로 만든 사용하기 편한 library
+ 2) 모든 browser에서 동일하게 동작한다.
+	- JavaScript는 browser마다 상이하게 동작하는 경우가 있다.
+	  특정 browser에서는 수행이 잘 되고 다른 browser에서는 수행이 잘 안될 수도 있다.
+	  하지만 jQuery 코드는 browser에 상관없이 잘 동작한다.
+  3) 무료로 사용 가능하다.
+  
+  
+  
+jQuery를 사용하려면?
+- 설치를 할 수도 있지만,,, 일반적으로는 CDN 방식을 이용한다. 
+- CDN (Content Delivery Network) 방식
+	: 네트워크를 통해서 라이브러리를 동적으로 다운로드해서 사용하는 개념
+- 라이브러리를 네트워크를 통해 동적으로 다운로드 한다.	
+
+05_jQuery
+
+================================================================================
