@@ -102,6 +102,8 @@ Done in 19.08s
 
 5. https://jhk828.github.io/vue-devops/ 에 접속하여 배포 확인
 
+   ![vue-site](vue-site.png)
+
 ## 3. GitHub Actions workflow로 배포 자동화
 
 1. GitHub Actions의 Simple workflow 파일 (deploy.yml) 작성 후 commit
